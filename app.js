@@ -4,6 +4,19 @@ var util= require("util");
 
 var app = express();
 
+app.get("/users/:userid", function(req, res) {
+    var userId = parseString(req.params.userid, 10);
+    res.writeHead(200,{"Content-Type":"text/plain"});
+    if(userId == "ascari")
+        {
+            res.end("Fottiti stronzo muori male" + userId);
+        }
+    else
+        {
+            res.end(""+userId);
+        }
+});
+
 app.use(function(request, response, next) {
     //console.log("In comes a " + request.method + " to " + request.url);
     //console.log(util.inspect(request, {showHidden: false, depth: null}));
